@@ -14,6 +14,13 @@ jobs:
       - run: mkdir -p ~/adehome
       - run: cd ~/adehome
       - run: touch .adehome
+  Build Autoware:
+    machine: true
+    resource_class: vignesh_tw/3080ti
+    steps:
+      - run: cd ~
+      - run: ls
+
 
 workflows:
   build-test-deploy:
