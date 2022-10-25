@@ -1,12 +1,15 @@
 version: 2.1
-workflows:
-  testing:
-    jobs:
-      - runner-test
+
 jobs:
-  runner-test:
+  runner-init:
     machine: true
     resource_class: vignesh_tw/3080ti
     steps:
       - run: echo "Hi I'm on Runners!"
-      - run: ade --version
+      - run: sudo lshw
+
+
+workflows:
+  testing:
+    jobs:
+      - runner-init
