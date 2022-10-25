@@ -21,10 +21,18 @@ jobs:
           mkdir -p ~/adehome
           cd ~/adehome
           touch .adehome
-          echo ".aderc-amd64-foxy" >> ~/adehome/.aderc
-          ls -a
-          cd AutowareAuto
-          ade start --update --enter
+
+  Test Autoware:
+      machine: true
+      resource_class: vignesh_tw/3080ti
+      steps:
+        - run: echo test
+
+  Deploy:
+    machine: true
+    resource_class: vignesh_tw/3080ti
+    steps:
+      - run: echo deploy
 
 workflows:
   build-test-deploy:
@@ -36,3 +44,9 @@ workflows:
       - Build Autoware:
           requires:
             - "Configure ADE"
+      - Test Autoware:
+          requires:
+            - "Build Autoware"
+      - Deploy:
+          requires:
+            - "Test Autoware"
