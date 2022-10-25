@@ -23,6 +23,7 @@ jobs:
           touch .adehome
           echo ".aderc-amd64-foxy" >> ~/adehome/.aderc
           git clone https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto.git
+          ls -a
 
 workflows:
   build-test-deploy:
