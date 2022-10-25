@@ -1,15 +1,24 @@
 version: 2.1
 
 jobs:
-  runner-init:
+  Initialize PC:
     machine: true
     resource_class: vignesh_tw/3080ti
     steps:
       - run: echo "Hi I'm on Runners!"
       - run: lshw
-
+  Configure ADE:
+    machine: true
+    resource_class: vignesh_tw/3080ti
+    steps:
+      - run: mkdir -p ~/adehome
+      - run: cd ~/adehome
+      - run: touch .adehome
 
 workflows:
-  testing:
+  build-test-deploy:
     jobs:
-      - runner-init
+      - Initialize PC
+      - Configure ADE:
+          requires:
+            - "Initialize PC"
