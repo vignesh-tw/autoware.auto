@@ -8,6 +8,5 @@ jobs:
     machine: true
     resource_class: vignesh_tw/3080ti
     steps:
-      - run: |
-          echo "Hi I'm on Runners!"
-          ls
+      - run: echo "Hi I'm on Runners!"
+      - run: cd ~/adehome/AutowareAuto
