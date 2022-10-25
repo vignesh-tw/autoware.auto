@@ -23,6 +23,8 @@ jobs:
           touch .adehome
           echo ".aderc-amd64-foxy" >> ~/adehome/.aderc
           ls -a
+          cd AutowareAuto
+          ade start --update --enter
 
 workflows:
   build-test-deploy:
