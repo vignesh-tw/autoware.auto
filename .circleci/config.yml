@@ -17,7 +17,6 @@ jobs:
     machine: true
     resource_class: vignesh_tw/3080ti
     steps:
-      - run: apt-get install nano
       - run: |
           mkdir -p ~/adehome
           cd ~/adehome
