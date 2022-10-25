@@ -11,22 +11,19 @@ jobs:
     machine: true
     resource_class: vignesh_tw/3080ti
     steps:
-      - run: mkdir -p ~/adehome
-      - run: cd ~/adehome
-      - run: touch .adehome
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - adehome/
+      - run: ade --version
+
   Build Autoware:
     machine: true
     resource_class: vignesh_tw/3080ti
     steps:
-      - attach_workspace:
-          at: ~/
-      - run: cd ~/
-      - run: ls -a
-
+      - run: apt-get install nano
+      - run: |
+          mkdir -p ~/adehome
+          cd ~/adehome
+          touch .adehome
+          echo ".aderc-amd64-foxy" >> ~/adehome/.aderc
+          git clone https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto.git
 
 workflows:
   build-test-deploy:
