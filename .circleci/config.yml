@@ -14,12 +14,18 @@ jobs:
       - run: mkdir -p ~/adehome
       - run: cd ~/adehome
       - run: touch .adehome
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - adehome/
   Build Autoware:
     machine: true
     resource_class: vignesh_tw/3080ti
     steps:
+      - attach_workspace:
+          at: /~
       - run: cd ~
-      - run: ls
+      - run: la
 
 
 workflows:
