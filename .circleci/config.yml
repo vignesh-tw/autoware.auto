@@ -23,8 +23,8 @@ jobs:
     resource_class: vignesh_tw/3080ti
     steps:
       - attach_workspace:
-          at: /~
-      - run: cd ~
+          at: ~/
+      - run: cd ~/
       - run: la
 
 
