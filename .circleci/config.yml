@@ -29,3 +29,6 @@ workflows:
       - Configure ADE:
           requires:
             - "Initialize PC"
+      - Build Autoware:
+          requires:
+            - "Configure ADE"
