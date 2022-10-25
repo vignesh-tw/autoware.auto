@@ -6,7 +6,7 @@ jobs:
     resource_class: vignesh_tw/3080ti
     steps:
       - run: echo "Hi I'm on Runners!"
-      - run: sudo lshw
+      - run: lshw
 
 
 workflows:
